@@ -10,13 +10,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { MatMenuModule} from '@angular/material/menu';
-import { MatDividerModule } from '@angular/material/divider'
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { HomePageComponent } from './pages/home/home-page.component';
+import { ImageListComponent } from './pages/home/components/image-list/image-list.component'
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatRippleModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    HomePageComponent,
+    ImageListComponent
   ],
   imports: [
     BrowserModule,
@@ -28,10 +35,14 @@ import { MatDividerModule } from '@angular/material/divider'
     MatButtonModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatDividerModule
-    
+    MatDividerModule,
+    MatGridListModule,
+    MatRippleModule,
+    MatCardModule
 
-    
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
