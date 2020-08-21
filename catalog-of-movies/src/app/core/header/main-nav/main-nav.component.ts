@@ -3,7 +3,15 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
-import { NavBarItem } from './nav-bar-item.model';
+import {ThemePalette} from '@angular/material/core';
+import { FormControl } from '@angular/forms';
+
+
+export interface Task {
+  name: string;
+  completed: boolean;
+  color: ThemePalette;
+}
 
 @Component({
   selector: 'app-main-nav',
@@ -12,6 +20,12 @@ import { NavBarItem } from './nav-bar-item.model';
 })
 
 export class MainNavComponent {
+  isSearach: boolean = false;
+  isTune: boolean = false;
+  
+  toppings = new FormControl();
+
+  toppingList: string[] = ['Action', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -19,16 +33,9 @@ export class MainNavComponent {
       shareReplay()
     );
 
-    menuItems: NavBarItem[] = [
-      {
-        label: 'Sign Up',
-        icon: 'login'
-      },
-      {
-        label: 'settings',
-        icon: 'settings'
-      }
-    ]
+    
+
+    
   
 
   constructor(private breakpointObserver: BreakpointObserver) {}
