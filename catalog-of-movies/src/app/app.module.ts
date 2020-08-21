@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavBarComponent } from './core/header/nav-bar/nav-bar.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,12 +16,16 @@ import { ImageListComponent } from './pages/home/components/image-list/image-lis
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRippleModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
+import { MainNavComponent } from './core/header/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
     HomePageComponent,
-    ImageListComponent
+    ImageListComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,10 @@ import { MatCardModule } from '@angular/material/card';
     MatDividerModule,
     MatGridListModule,
     MatRippleModule,
-    MatCardModule
+    MatCardModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
 
 
 
