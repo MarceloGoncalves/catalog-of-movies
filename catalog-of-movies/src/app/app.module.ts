@@ -17,7 +17,6 @@ import { ImageListComponent } from './pages/home/components/image-list/image-lis
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRippleModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
-
 @NgModule({
   declarations: [
     AppComponent,

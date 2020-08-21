@@ -1,0 +1,43 @@
+@import '@angular/material/_theming';
+
+@include mat-core();
+
+$mov-primary: (
+ Main:#03a62c,
+ Light:#57d95c,
+ Dark: #007600,
+ contrast: (
+  Main: #000,
+  Light: #000,
+  Dark: #fff
+ ));
+
+ $mov-secondary: (
+ Main: #aef2cc,
+ Light: #e1ffff,
+ Dark: #7dbf9b,
+ contrast: (
+   Main: #000,
+   Light: #000,
+   Dark: #000
+  ));
+
+ $mov-accent: (
+ Main: #f2e30c,
+ Light: #ffff57,
+ Dark: #bbb100,
+ contrast: (
+   Main: #000,
+   Light: #000,
+   Dark: #000
+  ));
+
+$movies-app-primary: mat-palette($mov-primary, Main, Light, Dark);
+$movies-app-secondary:  mat-palette($mov-secondary, Main, Light, Dark);
+
+$movies-app-theme: mat-light-theme(
+    $movies-app-primary,
+    $movies-app-secondary
+);
+
+@include angular-material-theme($movies-app-theme);

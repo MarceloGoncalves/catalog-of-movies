@@ -15,8 +15,8 @@ export class NavBarComponent implements OnInit {
       icon: 'login'
     },
     {
-      label: 'Sing In',
-      icon: 'help'
+      label: 'settings',
+      icon: 'settings'
     }
   ]
 
