@@ -1,18 +1,5 @@
-<div fxLayout="row wrap" fxLayoutAlign="center">
+<div fxLayout="row wrap" fxLayoutAlign="center"  >
     
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
-    <app-image-list ></app-image-list >
+    <app-movie-card *ngFor="let movie of movies" [movie]=movie></app-movie-card >
 
 </div>
