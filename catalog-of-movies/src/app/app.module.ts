@@ -12,7 +12,6 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { HomePageComponent } from './pages/home/home-page.component';
-import { ImageListComponent } from './pages/home/components/image-list/image-list.component'
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRippleModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
@@ -24,13 +23,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
+import { MoviePageComponent } from './pages/movie/movie-page.component';
+import { InfoMovieComponent } from './pages/movie/components/info-movie/info-movie.component';
+
+import { MovieCard } from './pages/home/components/movie-card/movie-card.component';
+
+import { MovieService } from './shared/services/movie.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    ImageListComponent,
-    MainNavComponent
+    MainNavComponent,
+    MoviePageComponent,
+    InfoMovieComponent,
+    MovieCard
   ],
   imports: [
     BrowserModule,
@@ -52,14 +62,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatSelectModule
-
-
-
-
-
+    MatSelectModule,
+    MatTooltipModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,44 @@
+<div fxLayout="row wrap" fxLayoutAlign="center" class="m20">
+
+    <div fxLayout="column">
+        <img src={{movie.poster}} alt="Poster of movie {{movie.title}}">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div class="m5 pointer" (click)="onClickFav()">
+                <mat-icon class="fav-icon">favorite_border</mat-icon>
+            </div>
+
+            <div class="rating" fxLayout="row" matTooltip="IMDb Rating" >
+                <mat-icon style="color:darkorange;" >star_rate</mat-icon>
+                <h3>8.5</h3>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="space-evenly">
+        <mat-card class="card m20">
+            <mat-card-header>
+                <mat-card-title>{{movie.title}}</mat-card-title>
+                <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>movie plot
+                </p>
+            </mat-card-content>
+
+        </mat-card>
+        <mat-card class="card m20">
+            <mat-card-header>
+                <mat-card-title>Elenco</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>"ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
+                    minima
+                    veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+                </p>
+            </mat-card-content>
+        </mat-card>
+
+
+    </div>
+
+</div>
