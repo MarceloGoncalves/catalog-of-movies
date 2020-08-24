@@ -1,5 +1,4 @@
 <mat-sidenav-container class="sidenav-container">
-
   <mat-sidenav #drawer class="sidenav" fixedInViewport=true>
 
     <mat-toolbar>Settings</mat-toolbar>
@@ -11,117 +10,29 @@
 
   </mat-sidenav>
 
-
   <mat-sidenav-content>
-
-    <mat-toolbar color="primary">
-
-      <mat-toolbar-row>
-
-        <span class="flex" >Movies</span>
-
-        <form *ngIf="!(isHandset$ | async)" class="flex mt">
-          <mat-form-field class="wd-90">
-
-            <mat-label>Search</mat-label>
-            <input matInput type="text">
-            <button mat-icon-button matSuffix>
-              <mat-icon>search</mat-icon>
-            </button>
-
-            <button type="button" (click)="isTune = !isTune" mat-icon-button matSuffix>
-              <mat-icon class="mr"> tune </mat-icon>
-            </button>
-
-          </mat-form-field>
-        </form>
-
-        <button class="mr" mat-button *ngIf="!(isHandset$ | async)">
+    <mat-toolbar color="primary" >
+      <mat-toolbar-row fxLayoutAlign="space-around center" >
+        <span fxFlex>Movies</span>
+        
+        <button class="mr" mat-button *ngIf="!(isHandset$ | async)" >
           <mat-icon class="mr"> login </mat-icon>
           Sign Up
         </button>
-
-
 
         <button mat-icon-button [matMenuTriggerFor]="dropMenu" *ngIf="(isHandset$ | async)">
           <mat-icon>more_vert</mat-icon>
         </button>
 
         <mat-menu #dropMenu="matMenu">
-          <button mat-menu-item (click)="isSearach = !isSearach">
-            <mat-icon class="mr"> search </mat-icon>
-            Search
-          </button>
-
-          <mat-divider></mat-divider>
-
           <button mat-menu-item>
             <mat-icon class="mr"> login </mat-icon>
             Sign Up
           </button>
         </mat-menu>
       </mat-toolbar-row>
-
-      <mat-toolbar-row *ngIf="(isHandset$ | async) && isSearach" color="primary" fxLayoutAlign="center" class="mb">
-        <form>
-          <mat-form-field class="wd-100">
-            <mat-label>Search</mat-label>
-            <input matInput type="text">
-            <button mat-icon-button matSuffix>
-              <mat-icon>search</mat-icon>
-            </button>
-            <button type="button" (click)="isTune = !isTune" mat-icon-button matSuffix>
-              <mat-icon class="mr"> tune </mat-icon>
-            </button>
-          </mat-form-field>
-        </form>
-      </mat-toolbar-row>
-
-      <mat-toolbar-row *ngIf="!(isHandset$ | async) && isTune" fxLayoutAlign="center">
-        <mat-form-field class="mr">
-          <mat-label>Genre</mat-label>
-          <mat-select>
-            <mat-option value="Action">Action</mat-option>
-            <mat-option value="Adventure">Adventure</mat-option>
-            <mat-option value="Romance">Romance</mat-option>
-          </mat-select>
-
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Year</mat-label>
-          <mat-select>
-            <mat-option value="Action">2020</mat-option>
-            <mat-option value="Adventure">2019</mat-option>
-            <mat-option value="Romance">2018</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-toolbar-row>
-
-      <mat-toolbar-row *ngIf="isTune && isSearach" fxLayoutAlign="center" class="mb">
-
-        <mat-form-field>
-          <mat-label>Genre</mat-label>
-          <mat-select>
-            <mat-option value="Action">Action</mat-option>
-            <mat-option value="Adventure">Adventure</mat-option>
-            <mat-option value="Romance">Romance</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Year</mat-label>
-          <mat-select>
-            <mat-option value="Action">2020</mat-option>
-            <mat-option value="Adventure">2019</mat-option>
-            <mat-option value="Romance">2018</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-      </mat-toolbar-row>
-
     </mat-toolbar>
-
+    
     <ng-content></ng-content>
 
   </mat-sidenav-content>

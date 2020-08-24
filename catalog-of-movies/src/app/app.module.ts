@@ -32,6 +32,7 @@ import { InfoMovieComponent } from './pages/movie/components/info-movie/info-mov
 import { MovieCard } from './pages/home/components/movie-card/movie-card.component';
 
 import { MovieService } from './shared/services/movie.service';
+import { SearchBarComponent } from './pages/home/components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MovieService } from './shared/services/movie.service';
     MainNavComponent,
     MoviePageComponent,
     InfoMovieComponent,
-    MovieCard
+    MovieCard,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

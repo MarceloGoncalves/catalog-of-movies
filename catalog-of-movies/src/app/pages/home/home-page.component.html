@@ -1,5 +1,13 @@
-<div fxLayout="row wrap" fxLayoutAlign="center"  >
-    
-    <app-movie-card *ngFor="let movie of movies" [movie]=movie></app-movie-card >
+<div fxLayout="row wrap" fxLayoutAlign="center start" class="mt" fxFill>
+    <div fxLayout="column" fxLayoutAlign="space-between center">
+       
+        <h1 class='title'> <strong>Search for your favorite Movies</strong> </h1>
+        
+        <div class="mt">
+            <mat-toolbar>
+                <app-search-bar></app-search-bar>
+            </mat-toolbar>
+        </div>
 
+    </div>
 </div>
