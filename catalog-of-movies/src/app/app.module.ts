@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 import { MoviePageComponent } from './pages/movie/movie-page.component';
 import { InfoMovieComponent } from './pages/movie/components/info-movie/info-movie.component';
@@ -60,12 +62,8 @@ import { MovieService } from './shared/services/movie.service';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatSelectModule
-
-
-
-
-
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]

@@ -15,4 +15,8 @@ export class InfoMovieComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClickFav(){
+    
+  }
+
 }

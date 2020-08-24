@@ -4,4 +4,5 @@ export interface Movie{
     year:string;
     type:string;
     poster:string;
+    plot?:string;
 }
