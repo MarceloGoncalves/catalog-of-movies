@@ -3,11 +3,26 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 
 import { map, shareReplay } from 'rxjs/operators';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  styleUrls: ['./search-bar.component.scss'],
+  animations: [
+    
+    trigger('fadeAnimation', [
+
+      state('in', style({opacity: 1})),
+
+      transition(':enter', [
+        style({opacity: 0}),
+        animate(700 )
+      ]),
+      transition(':leave',
+        animate(0, style({opacity: 0})))
+    ])
+  ]
 })
 export class SearchBarComponent implements OnInit {
 
@@ -24,4 +39,5 @@ export class SearchBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }

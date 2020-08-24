@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/shared/model/movie.model';
-import { MovieService } from 'src/app/shared/services/movie.service';
+import { FormGroup } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss'],
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss'],
   animations: [
     
     trigger('fadeAnimation', [
@@ -22,13 +21,16 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])
   ]
 })
-export class HomePageComponent implements OnInit {
-  movies:Movie[];
+export class LoginPageComponent implements OnInit {
 
-  constructor(private movieService:MovieService) { }
+  form: FormGroup;
+  isRegister: boolean = false;
+  public loginInvalid: boolean;
+  
+  
+  constructor() { }
 
   ngOnInit(): void {
-    this.movies = this.movieService.getMovies();
   }
 
 }

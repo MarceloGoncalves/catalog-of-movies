@@ -1,0 +1,52 @@
+<mat-card [@fadeAnimation]>
+    <mat-card-content>
+        <form >
+            <div fxLayout=row>
+                <button [@fadeAnimation] *ngIf="isRegister" (click)="isRegister = false" mat-icon-button >
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <h2 [@fadeAnimation] *ngIf="!isRegister">Log In</h2>
+                <h2 [@fadeAnimation] *ngIf="isRegister">Register</h2>
+            </div>
+
+            <mat-form-field [@fadeAnimation] *ngIf="isRegister">
+                <input matInput placeholder="Name" required>
+                <mat-error>
+                    Please provide a valid your name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-error [@fadeAnimation] *ngIf="loginInvalid">
+                The username and password were not recognised
+            </mat-error>
+            <mat-form-field>
+                <input matInput placeholder="Email" required>
+                <mat-error>
+                    Please provide a valid email address
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field >
+                <input matInput type="password" placeholder="Password" required>
+                <mat-error>
+                    Please provide a valid password
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field [@fadeAnimation] *ngIf="isRegister">
+                <input matInput type="password" placeholder="Repeat password" required>
+                <mat-error>
+                    Please repeat your password
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <div fxLayout=column>
+
+                <button mat-raised-button [@fadeAnimation] color="accent" disabled={{isRegister}}>Login</button>
+                <br>
+                <button mat-raised-button color="primary" (click)="isRegister = !isRegister">Register</button>
+
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

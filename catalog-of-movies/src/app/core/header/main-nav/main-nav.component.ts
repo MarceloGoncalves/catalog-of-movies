@@ -40,4 +40,8 @@ export class MainNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  login(){
+    this.router.navigate(['/login']);
+  }
+
 }

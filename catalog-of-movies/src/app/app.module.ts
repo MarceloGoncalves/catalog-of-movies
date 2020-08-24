@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,6 +34,7 @@ import { MovieCard } from './pages/home/components/movie-card/movie-card.compone
 
 import { MovieService } from './shared/services/movie.service';
 import { SearchBarComponent } from './pages/home/components/search-bar/search-bar.component';
+import { LoginPageComponent } from './pages/login/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -42,12 +44,15 @@ import { SearchBarComponent } from './pages/home/components/search-bar/search-ba
     MoviePageComponent,
     InfoMovieComponent,
     MovieCard,
-    SearchBarComponent
+    SearchBarComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule, 
 
     MatToolbarModule,
     MatIconModule,

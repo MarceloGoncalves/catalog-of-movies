@@ -11,39 +11,17 @@
   background-color:slateblue;
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+
+.brand{
+  cursor: pointer;
 }
 
-.hidden{
-  display: none;
-}
-
-.mat-toolbar{
-  color:white;
-}
-
-.mr{
-  margin-right: 6px;
-}
-
-.flex{
+.spacer {
   flex: 1 1 auto;
 }
 
-.mt{
-  margin-top: 20px;
-}
-
-.mb{
-  margin-bottom: 10px;
-}
-
-.wd-90{
-  width: 90%;
-}
-.wd-100{
-  width: 100%;
+a {
+  text-decoration: none;
+  color: white;
+  
 }
