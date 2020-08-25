@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/shared/model/movie.model';
-import { MovieService } from 'src/app/shared/services/movie.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -23,12 +21,12 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class HomePageComponent implements OnInit {
-  movies:Movie[];
+  
 
-  constructor(private movieService:MovieService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.movies = this.movieService.getMovies();
+    
   }
 
 }

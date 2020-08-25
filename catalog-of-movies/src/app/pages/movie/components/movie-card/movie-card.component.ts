@@ -12,13 +12,16 @@ export class MovieCard implements OnInit {
   
   isFavorit:boolean;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router) {
+
+   }
 
   ngOnInit(): void {
+    console.log(this.movie)
   }
 
   onClickImage(){
-    this.router.navigate(['/movie', this.movie._id]);
+   // this.router.navigate(['/movie', this.movie.imdbID]);
   }
 
   onClickFavorite(){

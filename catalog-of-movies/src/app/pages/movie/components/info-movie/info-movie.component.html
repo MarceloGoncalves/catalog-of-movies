@@ -1,7 +1,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="center" class="m20">
 
     <div fxLayout="column">
-        <img src={{movie.poster}} alt="Poster of movie {{movie.title}}">
+        <img src={{movie.Poster}} alt="Poster of movie {{movie.Title}}">
         <div fxLayout="row" fxLayoutAlign="start center">
             <div class="m5 pointer" (click)="onClickFav()">
                 <mat-icon class="fav-icon">favorite_border</mat-icon>
@@ -17,8 +17,8 @@
     <div fxLayout="column" fxLayoutAlign="space-evenly">
         <mat-card class="card m20">
             <mat-card-header>
-                <mat-card-title>{{movie.title}}</mat-card-title>
-                <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
+                <mat-card-title>{{movie.Title}}</mat-card-title>
+                <mat-card-subtitle>{{movie.Year}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>movie plot

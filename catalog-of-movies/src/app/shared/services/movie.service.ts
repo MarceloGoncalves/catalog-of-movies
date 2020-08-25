@@ -1,36 +1,47 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../model/movie.model';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
+import { Key } from '../../key/key';
+import { Observable, throwError } from 'rxjs';
+
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  movies: Movie[] = [
-    {
-      '_id': "0",
-      'poster': "https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg",
-      'title': "Batman",
-      'type': "movie",
-      'year': "1989"
-    },
-    {
-      '_id': "1",
-      'poster': "https://m.media-amazon.com/images/M/MV5BZTAyZDQzODYtNDA1ZS00YTUzLWE1Y2EtN2U5YzNkOTkzMDA1XkEyXkFqcGdeQXVyNjIzMjM5NTQ@._V1_SX300.jpg",
-      'title': "O Coringa do Cinema",
-      'type': "movie",
-      'year': "2019"
-    }
+  private url = "http://www.omdbapi.com/";
+  private key = Key;
 
-  ]
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  searchMovies(title: string): Observable<{[key:string]:Movie[]}> | any {
+    title = title.trim();
+    const options = title ?
+      { params: new HttpParams().set('s', title) } : {};
 
-  getMovies(): Movie[] {
-    return this.movies;
+     return this.http.get<{[key:string]:Movie[]}>(this.url + "?apikey=" + this.key, options)
+      .pipe(
+        map(
+          (responseData) => {
+            const movieArray = [];
+            for (const key in responseData.Search) {
+              if (responseData.Search) {
+                movieArray.push({ ...responseData.Search[key] })
+              }
+            }
+            return movieArray;
+          }
+        ),
+        catchError(error =>{
+          return throwError(error);
+        })
+      )
   }
 
-  getId(_id: string): Movie | null {
-    return this.movies.find(element => element._id == _id);
+  getId(_id: string) {
+
   }
 }

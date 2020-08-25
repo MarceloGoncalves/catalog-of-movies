@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-page.component.scss']
 })
 export class MoviePageComponent implements OnInit, AfterViewInit, OnDestroy {
-  movie: Movie = { '_id': "", 'poster': "", 'title': "asd", 'type': "", 'year': "" };
+  movie: Movie;
   private sub: any;
 
   constructor(
@@ -24,14 +24,14 @@ export class MoviePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.sub = this.route.params.subscribe(params => {
+    /* this.sub = this.route.params.subscribe(params => {
       const mov: Movie = this.movieService.getId(params['id']);
       console.log(this.movieService.getId(params['id']));
       if(mov){
         this.movie = mov;
       }
 
-    });
+    }); */
 
   }
 

@@ -1,8 +1,8 @@
 <mat-toolbar-row color="primary">
     <mat-form-field [ngClass]="{'width-500': !(isHandset$ | async)}" >
         <mat-label>Search</mat-label>
-        <input matInput type="text" >
-        <button mat-icon-button matSuffix >
+        <input matInput type="text" #input>
+        <button mat-icon-button matSuffix (click)="searchMovies(input.value)">
             <mat-icon>search</mat-icon>
         </button>
         <button type="button" (click)="isTune = !isTune" mat-icon-button matSuffix>
