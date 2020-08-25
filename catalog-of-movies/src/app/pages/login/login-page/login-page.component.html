@@ -1,39 +1,48 @@
 <mat-card [@fadeAnimation]>
     <mat-card-content>
-        <form >
+        <form #loginForm="ngForm">
             <div fxLayout=row>
-                <button [@fadeAnimation] *ngIf="isRegister" (click)="isRegister = false" mat-icon-button >
+                <button [@fadeAnimation] *ngIf="isRegister" (click)="isRegister = false" mat-icon-button>
                     <mat-icon>arrow_back</mat-icon>
                 </button>
                 <h2 [@fadeAnimation] *ngIf="!isRegister">Log In</h2>
                 <h2 [@fadeAnimation] *ngIf="isRegister">Register</h2>
             </div>
-
+            
             <mat-form-field [@fadeAnimation] *ngIf="isRegister">
-                <input matInput placeholder="Name" required>
+                <input matInput 
+                placeholder="Name" 
+                required
+                ngModel
+                name="name">
                 <mat-error>
-                    Please provide a valid your name
+                    Please provide your name
                 </mat-error>
             </mat-form-field>
-
-            <mat-error [@fadeAnimation] *ngIf="loginInvalid">
+            
+            <mat-error [@fadeAnimation] *ngIf="errorLogin">
                 The username and password were not recognised
             </mat-error>
+            <mat-error [@fadeAnimation] *ngIf="errorRegister">
+                An error occurred while trying to register
+            </mat-error>
+            
             <mat-form-field>
-                <input matInput placeholder="Email" required>
-                <mat-error>
+                <input matInput placeholder="Email" ngModel email name="email" required>
+                <mat-error *ngIf="isEmailInvalid">
                     Please provide a valid email address
                 </mat-error>
             </mat-form-field>
-            <mat-form-field >
-                <input matInput type="password" placeholder="Password" required>
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password" required ngModel name="pass" password>
                 <mat-error>
                     Please provide a valid password
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field [@fadeAnimation] *ngIf="isRegister">
-                <input matInput type="password" placeholder="Repeat password" required>
+                <input matInput type="password" placeholder="Repeat password" required password ngModel name="repPass"
+                    password>
                 <mat-error>
                     Please repeat your password
                 </mat-error>
@@ -41,9 +50,9 @@
             <br>
             <div fxLayout=column>
 
-                <button mat-raised-button [@fadeAnimation] color="accent" disabled={{isRegister}}>Login</button>
+                <button type="button" mat-raised-button [@fadeAnimation] (click)="onSubmit(loginForm)" color="accent" disabled={{isRegister}}>Login</button>
                 <br>
-                <button mat-raised-button color="primary" (click)="isRegister = !isRegister">Register</button>
+                <button type="button" mat-raised-button color="primary" (click)="isRegister = !isRegister">Register</button>
 
             </div>
 
