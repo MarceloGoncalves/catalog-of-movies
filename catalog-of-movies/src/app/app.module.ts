@@ -35,7 +35,7 @@ import { InfoMovieComponent } from './pages/movie/components/info-movie/info-mov
 import { MovieCard } from './pages/movie/components/movie-card/movie-card.component';
 
 import { MovieService } from './shared/services/movie.service';
-import { LoggerService} from './shared/services/logger.service';
+import { LoginService} from './shared/services/login.service';
 
 import { SearchBarComponent } from './pages/home/components/search-bar/search-bar.component';
 import { LoginPageComponent } from './pages/login/login-page/login-page.component';
@@ -82,7 +82,7 @@ import { MovieListComponent } from './pages/movie/components/movie-list/movie-li
   ],
   providers: [
     MovieService, 
-    LoggerService
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

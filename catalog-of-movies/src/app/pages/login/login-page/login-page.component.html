@@ -8,25 +8,21 @@
                 <h2 [@fadeAnimation] *ngIf="!isRegister">Log In</h2>
                 <h2 [@fadeAnimation] *ngIf="isRegister">Register</h2>
             </div>
-            
+
             <mat-form-field [@fadeAnimation] *ngIf="isRegister">
-                <input matInput 
-                placeholder="Name" 
-                required
-                ngModel
-                name="name">
+                <input matInput placeholder="Name" required ngModel name="name">
                 <mat-error>
                     Please provide your name
                 </mat-error>
             </mat-form-field>
-            
+
             <mat-error [@fadeAnimation] *ngIf="errorLogin">
                 The username and password were not recognised
             </mat-error>
             <mat-error [@fadeAnimation] *ngIf="errorRegister">
                 An error occurred while trying to register
             </mat-error>
-            
+
             <mat-form-field>
                 <input matInput placeholder="Email" ngModel email name="email" required>
                 <mat-error *ngIf="isEmailInvalid">
@@ -34,7 +30,7 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="password" placeholder="Password" required ngModel name="pass" password>
+                <input matInput type="password" placeholder="Password" required ngModel name="password" password>
                 <mat-error>
                     Please provide a valid password
                 </mat-error>
@@ -50,9 +46,13 @@
             <br>
             <div fxLayout=column>
 
-                <button type="button" mat-raised-button [@fadeAnimation] (click)="onSubmit(loginForm)" color="accent" disabled={{isRegister}}>Login</button>
+                <button type="button" mat-raised-button [@fadeAnimation] (click)="onSubmit(loginForm)" color="accent"
+                    disabled={{isRegister}}>Login</button>
                 <br>
-                <button type="button" mat-raised-button color="primary" (click)="isRegister = !isRegister">Register</button>
+                <button type="button" mat-raised-button color="primary" *ngIf="!isRegister"
+                    (click)="isRegister = !isRegister">Sing Up</button>
+                <button type="button" mat-raised-button color="primary" *ngIf="isRegister"
+                    (click)="onSubmit(loginForm)">Sing Up</button>
 
             </div>
 
