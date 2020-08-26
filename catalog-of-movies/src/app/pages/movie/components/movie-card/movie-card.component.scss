@@ -1,15 +1,22 @@
 .ripple-container {
     cursor: pointer;
-
     max-width: 300px;
     max-height: 450px;
-    margin: 20px;
-   
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  
-    -webkit-user-drag: none;
-    -webkit-tap-highlight-color: transparent;
+  }
+
+  .m5{
+    margin:5px ;
+  }
+
+  .pointer:hover{
+    cursor: pointer;
+    color:brown;
+  }
+
+  .rating{
+    padding-top: 9.5px;
+  }
+
+  mat-card{
+    margin: 5px;
   }

@@ -1,27 +1,41 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport=true>
-
+  <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport=true>
     <mat-toolbar>Settings</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
-
-  </mat-sidenav>
+  </mat-sidenav> -->
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <mat-toolbar-row fxLayoutAlign="space-around center">
 
         <div class="brand">
-          <a routerLink="/">Movies</a>
+          <a routerLink="">Movies</a>
         </div>
         <span class="spacer"></span>
-        <button mat-button *ngIf="!(isHandset$ | async)" (click)="login()">
+        <button mat-button *ngIf="!(isHandset$ | async) && !isLogged" (click)="login()">
           <mat-icon> login </mat-icon>
           Sign Up
         </button>
+
+        <button mat-button [matMenuTriggerFor]="dropMenu" *ngIf="!(isHandset$ | async) && isLogged">
+          <mat-icon>face</mat-icon>
+          User name
+        </button>
+
+        <mat-menu #dropMenu="matMenu" *ngIf="!(isHandset$ | async) && isLogged">
+          <button mat-menu-item>
+            <mat-icon>folder_special</mat-icon>
+            favarite
+          </button>
+          <button mat-menu-item>
+            <mat-icon> exit_to_app </mat-icon>
+            Sign out
+          </button>
+        </mat-menu>
 
 
         <button mat-icon-button [matMenuTriggerFor]="dropMenu" *ngIf="(isHandset$ | async)">
@@ -29,9 +43,17 @@
         </button>
 
         <mat-menu #dropMenu="matMenu">
-          <button mat-menu-item (click)="login()">
+          <button *ngIf="!isLogged" mat-menu-item (click)="login()">
             <mat-icon> login </mat-icon>
             Sign Up
+          </button>
+          <button *ngIf="isLogged" mat-menu-item>
+            <mat-icon>folder_special</mat-icon>
+            favarite
+          </button>
+          <button *ngIf="isLogged" mat-menu-item (click)="signOut()">
+            <mat-icon> exit_to_app </mat-icon>
+            Sign out
           </button>
         </mat-menu>
       </mat-toolbar-row>

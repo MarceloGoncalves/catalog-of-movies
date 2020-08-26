@@ -3,6 +3,10 @@ import { NgForm } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { LoginService } from 'src/app/shared/services/login.service';
 
+import { Subscription, Subject, Subscriber } from 'rxjs';
+
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -21,45 +25,66 @@ import { LoginService } from 'src/app/shared/services/login.service';
 })
 export class LoginPageComponent implements OnInit {
 
+  isLogging: boolean = false;
   isRegister: boolean = false;
   isEmailInvalid: boolean = false
   errorRegister
   errorLogin
-  public loginInvalid: boolean;
 
 
 
-  constructor(private loginService: LoginService) { }
+
+
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
   onSubmit(form: NgForm) {
     if (!form) {
       return;
     }
+    this.isLogging = true;
+
+    const email = form.value.email;
+    const password = form.value.password;
 
     if (!this.isRegister) {
-      const email = form.value.email;
-      const password = form.value.password;
-      console.log(email, password)
+      if (this.loginService.login(email, password)) {
+        this.loginService.isLogged.subscribe(
+          res => {
+            this.isLogging = false;
+            this.router.navigate([''])
+          }
+        )
+      }
+      else{
+        this.isLogging = false;
+      }
     }
-
-    if (this.isRegister) {
-      const name = form.value.name;
-      const email = form.value.email;
+    else {
       const password = form.value.password;
-      if(password == form.value.repPass){
-        this.onSingup(name, email, password);
-        form.reset();
-      }else{
-        alert("passwords don't match")
+      const confirmPass = form.value.confirmPass;
+      if (password == confirmPass) {
+        if (this.onSingup(name, email, password)) {
+          this.loginService.isLogged.subscribe(
+            res => {
+              this.isLogging = false;
+              form.reset();
+            }
+          )
+        }
+        this.isLogging = false;
+      } else {
+        alert("Register error")
+        this.isLogging = false;
       }
     }
   }
 
-  private onSingup(name: string, email: string, password: string) {
-    this.loginService.singup(name, email, password)
+  private onSingup(name: string, email: string, password: string): boolean {
+    return this.loginService.singup(name, email, password)
   }
 
 }

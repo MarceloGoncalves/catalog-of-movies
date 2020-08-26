@@ -17,12 +17,12 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  searchMovies(title: string): Observable<{[key:string]:Movie[]}> | any {
+  searchMovies(title: string): Observable<{ [key: string]: Movie[] }> | any {
     title = title.trim();
     const options = title ?
       { params: new HttpParams().set('s', title) } : {};
 
-     return this.http.get<{[key:string]:Movie[]}>(this.url + "?apikey=" + this.key, options)
+    return this.http.get<{ [key: string]: Movie[] }>(this.url + "?apikey=" + this.key, options)
       .pipe(
         map(
           (responseData) => {
@@ -35,13 +35,16 @@ export class MovieService {
             return movieArray;
           }
         ),
-        catchError(error =>{
+        catchError(error => {
           return throwError(error);
         })
       )
   }
 
-  getId(_id: string) {
-
+  getById(id: string):Observable<Movie> {
+    id = id.trim();
+    const options = id ?
+      { params: new HttpParams().set('i', id).set('plot','full')} : {};
+    return this.http.get<Movie>(this.url + "?apikey=" + this.key, options);
   }
 }
