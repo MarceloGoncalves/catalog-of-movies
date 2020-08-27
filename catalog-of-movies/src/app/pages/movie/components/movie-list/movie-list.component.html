@@ -2,7 +2,7 @@
 
     <mat-spinner *ngIf="isLoading"></mat-spinner>
     <ng-template [ngIf]="!isLoading">
-        <app-movie-card *ngFor="let mov of movies; i as index;" [movie]=mov>
+        <app-movie-card *ngFor="let mov of movies" [movie]=mov>
 
         </app-movie-card>
     </ng-template>

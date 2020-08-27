@@ -36,6 +36,7 @@ import { MovieCard } from './pages/movie/components/movie-card/movie-card.compon
 
 import { MovieService } from './shared/services/movie.service';
 import { LoginService} from './shared/services/login.service';
+import { AuthGuard} from './shared/services/auth.guard';
 
 import { SearchBarComponent } from './pages/home/components/search-bar/search-bar.component';
 import { LoginPageComponent } from './pages/login/login-page/login-page.component';
@@ -82,7 +83,8 @@ import { MovieListComponent } from './pages/movie/components/movie-list/movie-li
   ],
   providers: [
     MovieService, 
-    LoginService
+    LoginService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

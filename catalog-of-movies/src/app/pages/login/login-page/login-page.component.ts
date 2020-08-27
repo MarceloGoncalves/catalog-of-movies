@@ -3,8 +3,6 @@ import { NgForm } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { LoginService } from 'src/app/shared/services/login.service';
 
-import { Subscription, Subject, Subscriber } from 'rxjs';
-
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,11 +31,10 @@ export class LoginPageComponent implements OnInit {
 
 
 
-
-
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+
 
   }
 
@@ -52,35 +49,28 @@ export class LoginPageComponent implements OnInit {
 
     if (!this.isRegister) {
       if (this.loginService.login(email, password)) {
-        this.loginService.isLogged.subscribe(
-          res => {
-            this.isLogging = false;
-            this.router.navigate([''])
-          }
-        )
+        this.router.navigate(['/'])
       }
-      else{
+      else {
         this.isLogging = false;
       }
     }
-    else {
+
+    if (this.isRegister) {
       const password = form.value.password;
       const confirmPass = form.value.confirmPass;
       if (password == confirmPass) {
-        if (this.onSingup(name, email, password)) {
-          this.loginService.isLogged.subscribe(
-            res => {
-              this.isLogging = false;
-              form.reset();
-            }
-          )
+        let singup = this.onSingup(name, email, password);
+        if (singup) {
+          this.router.navigate(['/'])
         }
-        this.isLogging = false;
-      } else {
+      }
+      else {
         alert("Register error")
         this.isLogging = false;
       }
     }
+
   }
 
   private onSingup(name: string, email: string, password: string): boolean {

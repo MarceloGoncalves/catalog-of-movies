@@ -4,8 +4,9 @@ export interface Movie {
     Year: string;
     Type: string;
     Poster: string;
-    Actors:string;
+    Actors: string;
     Plot: string;
+    imdbRating: string;
 }
 
 export class Movie {
@@ -13,9 +14,8 @@ export class Movie {
     Title: string;
     Year: string;
     Type: string;
-    Actors:string;
+    Actors: string;
     Plot: string;
-    constructor(
-
-    ) { }
+    imdbRating: string;
+    constructor() { }
 }

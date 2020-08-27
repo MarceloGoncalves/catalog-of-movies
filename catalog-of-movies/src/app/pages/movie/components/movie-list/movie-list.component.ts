@@ -26,8 +26,8 @@ export class MovieListComponent implements OnInit {
         this.movieService.searchMovies(this.title).subscribe(
           (res:{[key:string]:Movie[]}) => {
             this.movies = res
-            console.log(this.movies)
             this.isLoading = false;
+            console.log(this.movies)
           }
         )
 

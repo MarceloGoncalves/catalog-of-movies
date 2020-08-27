@@ -9,11 +9,10 @@ import { MovieService } from 'src/app/shared/services/movie.service';
   styleUrls: ['./info-movie.component.scss']
 })
 export class InfoMovieComponent implements OnInit {
-  movie:Movie;
+  movie:Movie = new Movie();;
 
   @Input('id') movieID:string;
   constructor(private movieService: MovieService){
-    this.movie= new Movie();
   }
 
 
@@ -21,9 +20,8 @@ export class InfoMovieComponent implements OnInit {
     this.movieService.getById(this.movieID)
     .subscribe(
       res => {
-        
         this.movie = res;
-        console.log(this.movie.Actors);
+        console.log(this.movie);
       }
     )
   }

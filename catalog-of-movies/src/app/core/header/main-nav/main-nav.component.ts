@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 import {ThemePalette} from '@angular/material/core';
@@ -20,7 +20,8 @@ export interface Task {
   styleUrls: ['./main-nav.component.scss']
 })
 
-export class MainNavComponent implements OnInit {
+export class MainNavComponent implements OnInit, OnDestroy {
+  private isUserSub: Subscription;
   isSearach: boolean = false;
   isTune: boolean = false;
 
@@ -37,10 +38,12 @@ export class MainNavComponent implements OnInit {
     private router: Router,
     private loginService: LoginService) {}
   
+  
   ngOnInit(): void {
-    this.loginService.isLogged.subscribe(
-      res =>{
-        this.isLogged = res;
+    this.isUserSub = this.loginService.user.subscribe(
+      user =>{
+        this.isLogged = !!user;
+        
       }
     )
   }
@@ -51,6 +54,10 @@ export class MainNavComponent implements OnInit {
   signOut(){
     this.loginService.signOut();
     this.router.navigate(['/login']);
+  }
+
+  ngOnDestroy(): void {
+    this.isUserSub.unsubscribe();
   }
 
 }
