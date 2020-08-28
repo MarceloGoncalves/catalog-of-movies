@@ -14,7 +14,7 @@
       <mat-toolbar-row fxLayoutAlign="space-around center">
 
         <div class="brand">
-          <a routerLink="">MyMovies</a>
+          <a (click)="goHome()" >MyMovies</a>
         </div>
         <span class="spacer"></span>
         <button mat-button *ngIf="!(isHandset$ | async) && !isLogged" (click)="login()">

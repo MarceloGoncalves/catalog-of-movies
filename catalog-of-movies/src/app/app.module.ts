@@ -1,96 +1,46 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout'
-import { MatMenuModule } from '@angular/material/menu';
-import { MatDividerModule } from '@angular/material/divider';
-import { HomePageComponent } from './pages/home/home-page.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatRippleModule } from '@angular/material/core';
-import { MatCardModule } from '@angular/material/card';
-import { MainNavComponent } from './core/header/main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { AppRoutingModule } from './app-routing.module';
 
-import { MoviePageComponent } from './pages/movie/movie-page.component';
-import { InfoMovieComponent } from './pages/movie/components/info-movie/info-movie.component';
-
-import { MovieCard } from './shared/components/movie-card.component';
 
 import { MovieService } from './core/services/movie.service';
 import { LoginService } from './core/services/login.service';
 import { AuthGuard } from './core/auth.guard';
 import { UserService } from './core/services/user.service';
 
-import { SearchBarComponent } from './pages/home/components/search-bar/search-bar.component';
-import { LoginPageComponent } from './pages/login/login-page.component';
-import { MovieListPageComponent } from './pages/movie/components/movie-list/movie-list-page.component';
+import { AppComponent } from './app.component';
 
-import { PosterListComponent } from './shared/components/poster-list.component';
-import { FavotitePageComponent } from './pages/favorite/favotite-page.component';
+import { ComponentsModule } from './components/components.module';
+import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './pages/home/home.module';
+import { FavoriteModule } from './pages/favorite/favorite.module';
+import { LoginModule } from './pages/login/login.module';
+import { MovieModule } from './pages/movie/movie.module';
 
-import { GoBackButtonComponent } from './shared/components/go-back-button.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
-    MainNavComponent,
-    MoviePageComponent,
-    InfoMovieComponent,
-    MovieCard,
-    SearchBarComponent,
-    LoginPageComponent,
-    MovieListPageComponent,
-    PosterListComponent,
-    FavotitePageComponent,
-    GoBackButtonComponent
 
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
+ 
     HttpClientModule,
 
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatGridListModule,
-    MatRippleModule,
-    MatCardModule,
-    LayoutModule,
-    MatSidenavModule,
-    MatListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
-    MatPaginatorModule
+    ComponentsModule,
+    SharedModule,
+    HomeModule,
+    FavoriteModule,
+    LoginModule,
+    MovieModule
 
 
   ],

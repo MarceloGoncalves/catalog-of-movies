@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movie } from '../../shared/model/movie.model';
+import { MovieModel } from '../../shared/model/movie.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Key } from '../../../key/key';
@@ -20,18 +20,17 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  searchMovies(title: string, page:number): Observable<{Search: Movie[],totalResults: string}> {
+  searchMovies(title: string, page: number): Observable<{ Search: MovieModel[], totalResults: string }> {
     title = title.trim();
     const options = title ?
       {
         params: new HttpParams()
           .set('s', title)
           .set('type', 'movie')
-          .set('page', ''+page)
+          .set('page', '' + page)
       } : {};
-    //{ [key: string]: Movie[] }
 
-    return this.http.get<{Search: Movie[], totalResults: string}>(this.url + "?apikey=" + this.key, options)
+    return this.http.get<{ Search: MovieModel[], totalResults: string }>(this.url + "?apikey=" + this.key, options)
       .pipe(
         map(
           (responseData => {
@@ -43,11 +42,7 @@ export class MovieService {
                 movieArray.push({ ...responseData.Search[key] })
               }
             }
-
-            const response = { 'Search':movieArray, 'totalResults':lengthArray }
-
-            console.log(response);
-
+            const response = { 'Search': movieArray, 'totalResults': lengthArray }
             return response;
           }
 
@@ -63,10 +58,10 @@ export class MovieService {
 
   }
 
-  getById(id: string): Observable<Movie> {
+  getById(id: string): Observable<MovieModel> {
     id = id.trim();
     const options = id ?
       { params: new HttpParams().set('i', id).set('plot', 'full').set('type', 'movie') } : {};
-    return this.http.get<Movie>(this.url + "?apikey=" + this.key, options);
+    return this.http.get<MovieModel>(this.url + "?apikey=" + this.key, options);
   }
 }

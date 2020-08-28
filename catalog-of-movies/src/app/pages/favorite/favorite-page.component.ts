@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/shared/model/movie.model';
+import { MovieModel } from 'src/app/shared/model/movie.model';
 import { MovieService } from '../../core/services/movie.service';
 import { UserService } from '../../core/services/user.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-favotite-page',
-  templateUrl: './favotite-page.component.html',
-  styleUrls: ['./favotite-page.component.scss']
+  selector: 'app-favorite-page',
+  templateUrl: './favorite-page.component.html',
+  styleUrls: ['./favorite-page.component.scss']
 })
-export class FavotitePageComponent implements OnInit {
-  movies: Movie[] = [];
+export class FavoritePageComponent implements OnInit {
+  movies: MovieModel[] = [];
   isLoading: boolean = true;
   subscription: Subscription;
 

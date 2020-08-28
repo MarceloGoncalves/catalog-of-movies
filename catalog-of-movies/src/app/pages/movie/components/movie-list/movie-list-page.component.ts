@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/shared/model/movie.model';
+import { MovieModel } from 'src/app/shared/model/movie.model';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/core/services/movie.service';
 import { PageEvent } from '@angular/material/paginator';
@@ -12,7 +12,7 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class MovieListPageComponent implements OnInit {
 
-  movies: Movie[];
+  movies: MovieModel[];
   isLoading: boolean = true;
 
   title;
@@ -38,11 +38,9 @@ export class MovieListPageComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.title = params['title'];
       if (this.title) {
-        
         this.movieService.searchMovies(this.title, !!event?event.pageIndex+1:1).subscribe(
           (res) => {
             if (+res.Search.length > 0) {
-              console.log(res);
               this.movies = res.Search.slice(0,!!event?event.pageSize:10)
               this.pageLength = +res.totalResults;
               this.checkPagenable();

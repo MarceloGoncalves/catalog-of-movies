@@ -1,20 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './pages/home/home-page.component';
-import { MoviePageComponent } from './pages/movie/movie-page.component';
-import { LoginPageComponent } from './pages/login/login-page.component';
-import { MovieListPageComponent } from './pages/movie/components/movie-list/movie-list-page.component';
-import { FavotitePageComponent } from './pages/favorite/favotite-page.component';
+
 import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
-  {path:'', component:HomePageComponent},
-  {path:'movie/:id',
-  component:MoviePageComponent},
-  {path:'movie/movie-list/:title', component:MovieListPageComponent},
-  {path:'login', component:LoginPageComponent},
-  {path:'favorite',canActivate:[AuthGuard], component:FavotitePageComponent}
-];
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', loadChildren: './pages/home/home.module#HomeModule' },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
+  { path: 'favorite', loadChildren: './pages/favorite/favorite.module#FavoriteModule', canActivate: [AuthGuard] },
+  { path: 'movie', loadChildren: './pages/movie/movie.module#MovieModule' },
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

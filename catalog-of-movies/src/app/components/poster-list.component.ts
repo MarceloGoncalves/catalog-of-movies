@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Movie } from '../../shared/model/movie.model';
+import { MovieModel } from '../shared/model/movie.model';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { Movie } from '../../shared/model/movie.model';
 
 export class PosterListComponent implements OnInit {
 
-    @Input('movies') movies:Movie[];
+    @Input('movies') movies:MovieModel
 
     isLoading: boolean = true;
     title;

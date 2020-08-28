@@ -4,8 +4,8 @@ import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service';
-import { UserService } from '../../services/user.service';
+import { LoginService } from '../../core/services/login.service';
+import { UserService } from '../../core/services/user.service';
 
 
 
@@ -55,6 +55,11 @@ export class MainNavComponent implements OnInit, OnDestroy {
 
   goFavorite(){
     this.router.navigate(['/favorite']);
+  }
+
+  goHome(){
+    this.router.navigate(['']);
+
   }
 
   ngOnDestroy(): void {

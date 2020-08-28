@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
-import { Movie } from '../../../../shared/model/movie.model'
+import { MovieModel } from '../../../../shared/model/movie.model'
 import { MovieService } from 'src/app/core/services/movie.service';
 import { Subscription } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class InfoMovieComponent implements OnInit, OnDestroy {
 
   @Input('id') movieID: string;
 
-  movie: Movie = new Movie();;
+  movie: MovieModel = new MovieModel();;
   isLoading: boolean = false;
   subscription = new Subscription()
 

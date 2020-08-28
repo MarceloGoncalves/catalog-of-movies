@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../shared/model/user.model';
+import { UserModel } from '../../shared/model/user.model';
 import { BehaviorSubject } from 'rxjs';
 import { UsersMoks } from '../mocks/users-list.moks';
 
@@ -10,7 +10,7 @@ import { UsersMoks } from '../mocks/users-list.moks';
 export class UserService {
 
     usersMoks = UsersMoks;
-    user = new BehaviorSubject<User>(null);
+    user = new BehaviorSubject<UserModel>(null);
 
     findUser(email: string) {
         let user = this.usersMoks.find(user => user.email == email)
@@ -20,7 +20,7 @@ export class UserService {
         return false;
     }
 
-    addUser(user: User) {
+    addUser(user: UserModel) {
         this.usersMoks.push(user);
         this.user.next(user);
     }

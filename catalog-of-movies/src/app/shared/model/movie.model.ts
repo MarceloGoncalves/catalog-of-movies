@@ -1,4 +1,4 @@
-export interface Movie {
+export interface MovieModel {
     imdbID: string;
     Title: string;
     Year: string;
@@ -9,7 +9,7 @@ export interface Movie {
     imdbRating: string;
 }
 
-export class Movie {
+export class MovieModel {
     imdbID: string;
     Title: string;
     Year: string;

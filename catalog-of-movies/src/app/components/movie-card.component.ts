@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Movie } from '../../shared/model/movie.model';
+import { MovieModel } from '../shared/model/movie.model';
 import { Router } from '@angular/router';
-import { UserService } from '../../core/services/user.service';
-import { User } from '../../shared/model/user.model';
+import { UserService } from '../core/services/user.service';
+import { UserModel } from '../shared/model/user.model';
 
 @Component({
     selector: 'app-movie-card',
@@ -36,9 +36,9 @@ import { User } from '../../shared/model/user.model';
     </style>`
 })
 
-export class MovieCard implements OnInit {
+export class MovieCardComponent implements OnInit {
 
-    @Input('movie') set setMovie(mov: Movie) {
+    @Input('movie') set setMovie(mov: MovieModel) {
         this.movie = mov;
         this.isLogged = !!this.userService.user.value;
         if (this.isLogged && this.movie) {
@@ -48,10 +48,10 @@ export class MovieCard implements OnInit {
 
     }
 
-    movie: Movie
+    movie: MovieModel
     isLogged: boolean;
     isFavorit: boolean;
-    user: User = new User();
+    user: UserModel = new UserModel();
 
 
     constructor(

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { User } from '../../shared/model/user.model';
+import { UserModel } from '../../shared/model/user.model';
 import { UserService } from './user.service';
 
 
@@ -28,7 +28,7 @@ export class LoginService {
       return false
     }
 
-    let user = new User(name, email, password, this.getId());
+    let user = new UserModel(name, email, password, this.getId());
     this.userService.addUser(user)
     return true
   }
@@ -42,7 +42,7 @@ export class LoginService {
     return this._id++;
   }
 
-  private auth(user: User, password): boolean {
+  private auth(user: UserModel, password): boolean {
     if (user.password == password) {
       this.userService.addUser(user)
       return true;
