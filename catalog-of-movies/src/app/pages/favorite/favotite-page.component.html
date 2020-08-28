@@ -1,0 +1,15 @@
+<div class="mr" fxLayout="column" fxLayoutAlign="none">
+
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+    <div *ngIf="!isLoading">
+        <div fxLayout="row"  fxLayoutAlign="start">
+            <p class="mat-display-1 white" *ngIf="movies">Your favorite Movies"</p>
+            <p class="mat-display-1 white" 
+                *ngIf="!movies">You don't have any favorite movies added yetor</p>
+
+        </div>
+        <app-movie-list [movies]=movies></app-movie-list>
+    </div>
+
+</div>

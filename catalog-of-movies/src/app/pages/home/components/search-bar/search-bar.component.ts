@@ -41,8 +41,9 @@ export class SearchBarComponent implements OnInit {
   }
 
   searchMovies(title: string) {
-   
+   if(title){
     this.router.navigate(['/movie/movie-list', title]);
+   }
 
   }
 

@@ -59,6 +59,7 @@ export class LoginPageComponent implements OnInit {
     if (this.isRegister) {
       const password = form.value.password;
       const confirmPass = form.value.confirmPass;
+      const name = form.value.name;
       if (password == confirmPass) {
         let singup = this.onSingup(name, email, password);
         if (singup) {

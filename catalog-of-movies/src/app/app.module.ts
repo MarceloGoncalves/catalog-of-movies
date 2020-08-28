@@ -32,15 +32,21 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MoviePageComponent } from './pages/movie/movie-page.component';
 import { InfoMovieComponent } from './pages/movie/components/info-movie/info-movie.component';
 
-import { MovieCard } from './pages/movie/components/movie-card/movie-card.component';
+import { MovieCard } from './pages/components/movie-card.component';
 
 import { MovieService } from './shared/services/movie.service';
-import { LoginService} from './shared/services/login.service';
-import { AuthGuard} from './shared/services/auth.guard';
+import { LoginService } from './shared/services/login.service';
+import { AuthGuard } from './shared/services/auth.guard';
+import { UserService } from './shared/services/user.service';
 
 import { SearchBarComponent } from './pages/home/components/search-bar/search-bar.component';
-import { LoginPageComponent } from './pages/login/login-page/login-page.component';
-import { MovieListComponent } from './pages/movie/components/movie-list/movie-list.component';
+import { LoginPageComponent } from './pages/login/login-page.component';
+import { MovieListPageComponent } from './pages/movie/components/movie-list/movie-list-page.component';
+
+import { MovieListComponent } from './pages/components/movie-list.component';
+import { FavotitePageComponent } from './pages/favorite/favotite-page.component';
+
+import { GoBackButtonComponent } from './pages/components/go-back-button.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +58,11 @@ import { MovieListComponent } from './pages/movie/components/movie-list/movie-li
     MovieCard,
     SearchBarComponent,
     LoginPageComponent,
-    MovieListComponent
+    MovieListPageComponent,
+    MovieListComponent,
+    FavotitePageComponent,
+    GoBackButtonComponent
+
   ],
   imports: [
     BrowserModule,
@@ -79,12 +89,15 @@ import { MovieListComponent } from './pages/movie/components/movie-list/movie-li
     MatCheckboxModule,
     MatSelectModule,
     MatTooltipModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+
+
   ],
   providers: [
-    MovieService, 
+    MovieService,
     LoginService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

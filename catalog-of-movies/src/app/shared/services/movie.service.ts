@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Movie } from '../model/movie.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-import { Key } from '../../key/key';
+import { Key } from '../../../key/key';
 import { Observable, throwError } from 'rxjs';
 
 import { map, catchError } from 'rxjs/operators';
@@ -17,7 +17,7 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  searchMovies(title: string): Observable<{ [key: string]: Movie[] }> | any {
+  searchMovies(title: string): Observable<Movie[]> {
     title = title.trim();
     const options = title ?
       { params: new HttpParams()

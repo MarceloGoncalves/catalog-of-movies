@@ -1,33 +1,44 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
-import {Movie} from '../../../../shared/model/movie.model'
+import { Movie } from '../../../../shared/model/movie.model'
 import { MovieService } from 'src/app/shared/services/movie.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-info-movie',
   templateUrl: './info-movie.component.html',
   styleUrls: ['./info-movie.component.scss']
 })
-export class InfoMovieComponent implements OnInit {
-  movie:Movie = new Movie();;
+export class InfoMovieComponent implements OnInit, OnDestroy {
 
-  @Input('id') movieID:string;
-  constructor(private movieService: MovieService){
+  @Input('id') movieID: string;
+
+  movie: Movie = new Movie();;
+  isLoading: boolean = false;
+  subscription = new Subscription()
+
+  constructor(private movieService: MovieService ) {
+    
   }
+
 
 
   ngOnInit(): void {
-    this.movieService.getById(this.movieID)
-    .subscribe(
-      res => {
-        this.movie = res;
-        console.log(this.movie);
-      }
-    )
+
+    this.subscription = this.movieService.getById(this.movieID)
+      .subscribe(
+        movie => {
+          this.movie = movie;
+          this.isLoading = false;
+        }
+      )
   }
 
-  onClickFav(){
-    
+ 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe;
   }
+
+
 
 }

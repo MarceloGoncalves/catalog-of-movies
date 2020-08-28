@@ -2,18 +2,19 @@
   <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport=true>
     <mat-toolbar>Settings</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item href="#">Home</a>
+      <a mat-list-item href="#">Profile</a>
+      <a mat-list-item href="#">favorite</a>
+      <a mat-list-item href="#">config</a>
     </mat-nav-list>
   </mat-sidenav> -->
 
-  <mat-sidenav-content>
+  <mat-sidenav-content class="container">
     <mat-toolbar color="primary">
       <mat-toolbar-row fxLayoutAlign="space-around center">
 
         <div class="brand">
-          <a routerLink="">Movies</a>
+          <a routerLink="">MyMovies</a>
         </div>
         <span class="spacer"></span>
         <button mat-button *ngIf="!(isHandset$ | async) && !isLogged" (click)="login()">
@@ -22,12 +23,12 @@
         </button>
 
         <button mat-button [matMenuTriggerFor]="dropMenu" *ngIf="!(isHandset$ | async) && isLogged">
-          <mat-icon>face</mat-icon>
-          User name
+          <mat-icon>account_circle</mat-icon>
+          {{userName}}
         </button>
 
         <mat-menu #dropMenu="matMenu" *ngIf="!(isHandset$ | async) && isLogged">
-          <button mat-menu-item>
+          <button mat-menu-item (click)="goFavorite()">
             <mat-icon>folder_special</mat-icon>
             favarite
           </button>
@@ -47,7 +48,7 @@
             <mat-icon> login </mat-icon>
             Sign Up
           </button>
-          <button *ngIf="isLogged" mat-menu-item>
+          <button *ngIf="isLogged" mat-menu-item (click)="goFavorite()">
             <mat-icon>folder_special</mat-icon>
             favarite
           </button>

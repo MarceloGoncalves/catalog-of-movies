@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { User } from '../model/user.model';
-import { BehaviorSubject } from 'rxjs';
-
-import { UsersMoks } from '../../mocks/users-list.moks';
+import { UserService } from './user.service';
 
 
 
@@ -12,15 +10,13 @@ import { UsersMoks } from '../../mocks/users-list.moks';
 })
 
 export class LoginService {
-  usersMoks = UsersMoks;
-
-  user = new BehaviorSubject<User>(null);
-
-
   private _id = 0;
+  
+
+  constructor(private userService: UserService){}
 
   login(email: string, password: string) {
-    let user = this.usersMoks.find(user => user.email == email);
+    let user = this.userService.findUser(email);
     if (user) {
       return this.auth(user, password);
     }
@@ -28,18 +24,18 @@ export class LoginService {
   }
 
   singup(name: string, email: string, password: string) {
-    if (!!UsersMoks.find(elem => elem.email == email)) {
+    if (!!this.userService.findUser(email)) {
       return false
     }
+
     let user = new User(name, email, password, this.getId());
-    this.usersMoks.push(user);
-    this.user.next(user);
+    this.userService.addUser(user)
     return true
   }
 
 
   signOut() {
-    this.user.next(null)
+    this.userService.clearUser()
   }
 
   private getId(): number {
@@ -48,7 +44,7 @@ export class LoginService {
 
   private auth(user: User, password): boolean {
     if (user.password == password) {
-      this.user.next(user);
+      this.userService.addUser(user)
       return true;
     }
     return false;

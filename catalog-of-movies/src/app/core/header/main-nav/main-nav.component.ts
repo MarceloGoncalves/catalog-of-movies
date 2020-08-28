@@ -3,16 +3,11 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
-import {ThemePalette} from '@angular/material/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
-export interface Task {
-  name: string;
-  completed: boolean;
-  color: ThemePalette;
-}
 
 @Component({
   selector: 'app-main-nav',
@@ -24,6 +19,7 @@ export class MainNavComponent implements OnInit, OnDestroy {
   private isUserSub: Subscription;
   isSearach: boolean = false;
   isTune: boolean = false;
+  userName:string = '';
 
   isLogged: boolean = false
   
@@ -36,14 +32,15 @@ export class MainNavComponent implements OnInit, OnDestroy {
 
   constructor(private breakpointObserver: BreakpointObserver, 
     private router: Router,
-    private loginService: LoginService) {}
+    private loginService: LoginService,
+    private userService: UserService) {}
   
   
   ngOnInit(): void {
-    this.isUserSub = this.loginService.user.subscribe(
+    this.isUserSub = this.userService.user.subscribe(
       user =>{
         this.isLogged = !!user;
-        
+        !!user? this.userName = user.name : "user name";
       }
     )
   }
@@ -54,6 +51,10 @@ export class MainNavComponent implements OnInit, OnDestroy {
   signOut(){
     this.loginService.signOut();
     this.router.navigate(['/login']);
+  }
+
+  goFavorite(){
+    this.router.navigate(['/favorite']);
   }
 
   ngOnDestroy(): void {
