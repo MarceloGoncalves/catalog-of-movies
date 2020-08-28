@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { User } from '../model/user.model';
+import { User } from '../../shared/model/user.model';
 import { BehaviorSubject } from 'rxjs';
-import { UsersMoks } from '../../mocks/users-list.moks';
+import { UsersMoks } from '../mocks/users-list.moks';
 
 @Injectable({
     providedIn: 'root'

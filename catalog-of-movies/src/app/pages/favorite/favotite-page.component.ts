@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/shared/model/movie.model';
-import { MovieService } from 'src/app/shared/services/movie.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { MovieService } from '../../core/services/movie.service';
+import { UserService } from '../../core/services/user.service';
 import { Subscription } from 'rxjs';
 
 @Component({

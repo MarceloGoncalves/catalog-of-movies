@@ -3,7 +3,7 @@ import { Movie } from '../../shared/model/movie.model';
 
 
 @Component({
-    selector:'app-movie-list',
+    selector:'app-poster-list',
     template: `
     <div fxLayout="row wrap" *ngIf="movies" fxLayoutAlign="none center">
         <app-movie-card *ngFor="let mov of movies" [movie]=mov>  
@@ -12,7 +12,7 @@ import { Movie } from '../../shared/model/movie.model';
     styles: ['.white { color: white; }']
 })
 
-export class MovieListComponent implements OnInit {
+export class PosterListComponent implements OnInit {
 
     @Input('movies') movies:Movie[];
 

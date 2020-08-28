@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movie } from '../model/movie.model';
+import { Movie } from '../../shared/model/movie.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Key } from '../../../key/key';

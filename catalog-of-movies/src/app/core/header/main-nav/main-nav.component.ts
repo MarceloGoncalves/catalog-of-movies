@@ -4,8 +4,8 @@ import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/shared/services/login.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { LoginService } from '../../services/login.service';
+import { UserService } from '../../services/user.service';
 
 
 
