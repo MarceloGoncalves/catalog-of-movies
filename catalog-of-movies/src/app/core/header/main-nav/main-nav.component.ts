@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
-import {ThemePalette} from '@angular/material/core';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/shared/services/login.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
-export interface Task {
-  name: string;
-  completed: boolean;
-  color: ThemePalette;
-}
 
 @Component({
   selector: 'app-main-nav',
@@ -20,14 +15,14 @@ export interface Task {
   styleUrls: ['./main-nav.component.scss']
 })
 
-export class MainNavComponent implements OnInit {
+export class MainNavComponent implements OnInit, OnDestroy {
+  private isUserSub: Subscription;
   isSearach: boolean = false;
   isTune: boolean = false;
+  userName:string = '';
+
+  isLogged: boolean = false
   
-  toppings = new FormControl();
-
-  toppingList: string[] = ['Action', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -35,13 +30,35 @@ export class MainNavComponent implements OnInit {
     );
 
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, 
+    private router: Router,
+    private loginService: LoginService,
+    private userService: UserService) {}
+  
   
   ngOnInit(): void {
+    this.isUserSub = this.userService.user.subscribe(
+      user =>{
+        this.isLogged = !!user;
+        !!user? this.userName = user.name : "user name";
+      }
+    )
   }
 
   login(){
     this.router.navigate(['/login']);
+  }
+  signOut(){
+    this.loginService.signOut();
+    this.router.navigate(['/login']);
+  }
+
+  goFavorite(){
+    this.router.navigate(['/favorite']);
+  }
+
+  ngOnDestroy(): void {
+    this.isUserSub.unsubscribe();
   }
 
 }

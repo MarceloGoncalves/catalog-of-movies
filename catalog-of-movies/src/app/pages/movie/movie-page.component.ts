@@ -1,7 +1,5 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Movie } from 'src/app/shared/model/movie.model';
-import { MovieService } from 'src/app/shared/services/movie.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,36 +7,19 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './movie-page.component.html',
   styleUrls: ['./movie-page.component.scss']
 })
-export class MoviePageComponent implements OnInit, AfterViewInit, OnDestroy {
-  movie: Movie;
-  private sub: any;
+export class MoviePageComponent implements OnInit {
+  id:string
 
   constructor(
-    private route: ActivatedRoute,
-    private movieService: MovieService) { }
-
-  ngAfterViewInit(): void {
-
-  }
-
-
+    private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    /* this.sub = this.route.params.subscribe(params => {
-      const mov: Movie = this.movieService.getId(params['id']);
-      console.log(this.movieService.getId(params['id']));
-      if(mov){
-        this.movie = mov;
-      }
-
-    }); */
-
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
   }
-
-
 
 }

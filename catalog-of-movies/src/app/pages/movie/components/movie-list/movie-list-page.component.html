@@ -1,0 +1,17 @@
+<div class="mr" fxLayout="column" fxLayoutAlign="none">
+
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+    <div *ngIf="!isLoading">
+
+        <div fxLayout="row"  fxLayoutAlign="start">
+            <app-go-back-button></app-go-back-button>
+            
+            <p class="mat-display-1 white" *ngIf="movies">Results for "{{title}}"</p>
+            <p class="mat-display-1 white" *ngIf="!movies">No results were found for "{{title}}"</p>
+            
+        </div>
+        <app-movie-list [movies]=movies></app-movie-list>
+    </div>
+
+</div>
