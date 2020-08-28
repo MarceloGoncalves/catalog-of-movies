@@ -27,26 +27,26 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { MoviePageComponent } from './pages/movie/movie-page.component';
 import { InfoMovieComponent } from './pages/movie/components/info-movie/info-movie.component';
 
-import { MovieCard } from './pages/components/movie-card.component';
+import { MovieCard } from './shared/components/movie-card.component';
 
-import { MovieService } from './shared/services/movie.service';
-import { LoginService } from './shared/services/login.service';
-import { AuthGuard } from './shared/services/auth.guard';
-import { UserService } from './shared/services/user.service';
+import { MovieService } from './core/services/movie.service';
+import { LoginService } from './core/services/login.service';
+import { AuthGuard } from './core/auth.guard';
+import { UserService } from './core/services/user.service';
 
 import { SearchBarComponent } from './pages/home/components/search-bar/search-bar.component';
 import { LoginPageComponent } from './pages/login/login-page.component';
 import { MovieListPageComponent } from './pages/movie/components/movie-list/movie-list-page.component';
 
-import { MovieListComponent } from './pages/components/movie-list.component';
+import { PosterListComponent } from './shared/components/poster-list.component';
 import { FavotitePageComponent } from './pages/favorite/favotite-page.component';
 
-import { GoBackButtonComponent } from './pages/components/go-back-button.component';
+import { GoBackButtonComponent } from './shared/components/go-back-button.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { GoBackButtonComponent } from './pages/components/go-back-button.compone
     SearchBarComponent,
     LoginPageComponent,
     MovieListPageComponent,
-    MovieListComponent,
+    PosterListComponent,
     FavotitePageComponent,
     GoBackButtonComponent
 
@@ -90,6 +90,7 @@ import { GoBackButtonComponent } from './pages/components/go-back-button.compone
     MatSelectModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    MatPaginatorModule
 
 
   ],

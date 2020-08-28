@@ -5,7 +5,7 @@ import { MoviePageComponent } from './pages/movie/movie-page.component';
 import { LoginPageComponent } from './pages/login/login-page.component';
 import { MovieListPageComponent } from './pages/movie/components/movie-list/movie-list-page.component';
 import { FavotitePageComponent } from './pages/favorite/favotite-page.component';
-import { AuthGuard } from './shared/services/auth.guard';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
   {path:'', component:HomePageComponent},

@@ -1,17 +1,22 @@
-<div class="mr" fxLayout="column" fxLayoutAlign="none">
+<div class="" fxLayout="column" fxLayoutAlign="none">
 
     <mat-spinner *ngIf="isLoading"></mat-spinner>
 
-    <div *ngIf="!isLoading">
-
-        <div fxLayout="row"  fxLayoutAlign="start">
+    <div class="mr" *ngIf="!isLoading">
+        <div fxLayout="row" fxLayoutAlign="start">
             <app-go-back-button></app-go-back-button>
-            
+
             <p class="mat-display-1 white" *ngIf="movies">Results for "{{title}}"</p>
             <p class="mat-display-1 white" *ngIf="!movies">No results were found for "{{title}}"</p>
-            
         </div>
-        <app-movie-list [movies]=movies></app-movie-list>
+
+        <app-poster-list [movies]=movies></app-poster-list>
     </div>
+    <mat-paginator *ngIf="isPagenable" 
+        [length]="pageLength" 
+        [pageSize]="pageSize" 
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="getData($event)">
+    </mat-paginator>
 
 </div>

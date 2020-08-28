@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { map, shareReplay } from 'rxjs/operators';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { MovieService } from 'src/app/shared/services/movie.service';
+import { MovieService } from 'src/app/core/services/movie.service';
 import { Router } from '@angular/router';
 
 @Component({

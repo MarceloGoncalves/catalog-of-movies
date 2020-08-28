@@ -4,12 +4,14 @@
 
     <div *ngIf="!isLoading">
         <div fxLayout="row"  fxLayoutAlign="start">
+            <app-go-back-button></app-go-back-button>
             <p class="mat-display-1 white" *ngIf="movies">Your favorite Movies"</p>
             <p class="mat-display-1 white" 
                 *ngIf="!movies">You don't have any favorite movies added yetor</p>
 
         </div>
-        <app-movie-list [movies]=movies></app-movie-list>
+        <app-poster-list [movies]=movies></app-poster-list>
+        
     </div>
 
 </div>
