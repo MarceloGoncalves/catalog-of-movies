@@ -27,7 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { MoviePageComponent } from './pages/movie/movie-page.component';
 import { InfoMovieComponent } from './pages/movie/components/info-movie/info-movie.component';
@@ -90,6 +90,7 @@ import { GoBackButtonComponent } from './shared/components/go-back-button.compon
     MatSelectModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    MatPaginatorModule
 
 
   ],

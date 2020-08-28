@@ -7,6 +7,9 @@ import { Observable, throwError } from 'rxjs';
 
 import { map, catchError } from 'rxjs/operators';
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,37 +20,53 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  searchMovies(title: string): Observable<Movie[]> {
+  searchMovies(title: string, page:number): Observable<{Search: Movie[],totalResults: string}> {
     title = title.trim();
     const options = title ?
-      { params: new HttpParams()
-        .set('s', title)
-        .set('type','movie')
-        .set('page','1') } : {};
+      {
+        params: new HttpParams()
+          .set('s', title)
+          .set('type', 'movie')
+          .set('page', ''+page)
+      } : {};
+    //{ [key: string]: Movie[] }
 
-    return this.http.get<{ [key: string]: Movie[] }>(this.url + "?apikey=" + this.key, options)
+    return this.http.get<{Search: Movie[], totalResults: string}>(this.url + "?apikey=" + this.key, options)
       .pipe(
         map(
-          (responseData) => {
+          (responseData => {
             const movieArray = [];
+            const lengthArray = responseData.totalResults;
+
             for (const key in responseData.Search) {
               if (responseData.Search) {
                 movieArray.push({ ...responseData.Search[key] })
               }
             }
-            return movieArray;
+
+            const response = { 'Search':movieArray, 'totalResults':lengthArray }
+
+            console.log(response);
+
+            return response;
           }
-        ),
-        catchError(error => {
-          return throwError(error);
-        })
+
+          ),
+          catchError(error => {
+            return throwError(error);
+          })
+        )
       )
+
+
+
+
   }
 
-  getById(id: string):Observable<Movie> {
+  getById(id: string): Observable<Movie> {
     id = id.trim();
     const options = id ?
-      { params: new HttpParams().set('i', id).set('plot','full').set('type','movie')} : {};
+      { params: new HttpParams().set('i', id).set('plot', 'full').set('type', 'movie') } : {};
     return this.http.get<Movie>(this.url + "?apikey=" + this.key, options);
   }
 }
