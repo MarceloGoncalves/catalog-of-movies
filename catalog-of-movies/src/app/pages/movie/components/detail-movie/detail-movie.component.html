@@ -1,0 +1,16 @@
+<div fxLayout="row wrap" *ngIf="isLoading" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="mr" *ngIf="!isLoading" fxLayout="row wrap" fxLayoutAlign="space-between start">
+    <app-go-back-button></app-go-back-button>
+    <p class="mat-display-2 white" fxFlex="80" *ngIf="movie">{{movie.Title}}</p>
+</div>
+<div fxLayout="row wrap" *ngIf="!isLoading" fxLayoutAlign="center" class="m20">
+
+    <app-movie-card [movie]=movie></app-movie-card>
+    <div fxLayout="column" fxLayoutAlign="start">
+        <app-title-detail [title]=movie.Title [year]=movie.Year [plot]=movie.Plot></app-title-detail>
+        <app-actors-detail [actors]=movie.Actors></app-actors-detail>
+    </div>
+</div>

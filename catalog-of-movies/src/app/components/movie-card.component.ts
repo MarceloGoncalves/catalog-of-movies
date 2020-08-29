@@ -10,29 +10,40 @@ import { UserModel } from '../shared/model/user.model';
                 <mat-card class="mat-elevation-z4">
                     <mat-card-content>
                         <div fxLayout="column">
+
                             <div class="pointer" matRipple (click)="onClickImage()" >
                                 <img src={{movie.Poster}} alt="Poster of movie {{movie.Title}}">
                             </div>
-                            <div fxLayout="row" fxLayoutAlign="start center">
-                                <div  class="m5 pointer" *ngIf="isLogged" (click)="onClickFavorite()">
-                                    <mat-icon class="fav-icon" *ngIf="!isFavorit">favorite_border</mat-icon>
-                                    <mat-icon class="fav-icon favorite" *ngIf="isFavorit">favorite</mat-icon>
+                            <div class="atr-card">
+                                <div class="m5" fxLayout="row" fxLayoutAlign="start" *ngIf="!!movie.Genre">
+                                    <h3 matTooltip="IMDb Rating"><strong>Genre: </strong> {{movie.Genre}}</h3>
                                 </div>
-                                <div class="rating" fxLayout="row" *ngIf="!!movie.imdbRating" >
-                                    <mat-icon style="color:darkorange;">star_rate</mat-icon>
-                                    <h3 matTooltip="IMDb Rating">{{movie.imdbRating}}</h3>
+                                <div fxLayout="row" fxLayoutAlign="space-around start" >
+                                    <div  class="pointer" *ngIf="isLogged" (click)="onClickFavorite()">
+                                        <mat-icon class="fav-icon" *ngIf="!isFavorit">favorite_border</mat-icon>
+                                        <mat-icon class="fav-icon favorite" *ngIf="isFavorit">favorite</mat-icon>
+                                    </div>
+                                    <div fxLayout="row" fxLayoutAlign="center" *ngIf="!!movie.Runtime">
+                                        <mat-icon style="color:darkorange;">access_time</mat-icon>
+                                        <h3>{{movie.Runtime}}</h3>
+                                    </div>
+                                    <div fxLayout="row" fxLayoutAlign="center" *ngIf="!!movie.imdbRating">
+                                        <mat-icon matTooltip="IMDb Rating" style="color:darkorange;">star_rate</mat-icon>
+                                        <h3 matTooltip="IMDb Rating">{{movie.imdbRating}}</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </mat-card-content>
-                </mat-card>
-                
+                </mat-card>       
     <style>
-        .rating{ padding-top: 9.5px;}
         mat-card{ margin: 5px;}
         .favorite{ color:brown }
         .m5{ margin:5px;}
         .pointer:hover{ cursor: pointer; color:brown;}
+        .atr-card{
+            background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 62%, rgba(238,238,238,1) 98%);
+        }
     </style>`
 })
 

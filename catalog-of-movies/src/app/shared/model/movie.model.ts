@@ -7,6 +7,9 @@ export interface MovieModel {
     Actors: string;
     Plot: string;
     imdbRating: string;
+    Runtime:string;
+    Genre:string;
+    Director:string;
 }
 
 export class MovieModel {
@@ -17,5 +20,8 @@ export class MovieModel {
     Actors: string;
     Plot: string;
     imdbRating: string;
+    Runtime:string;
+    Genre:string;
+    Director:string;
     constructor() { }
 }
