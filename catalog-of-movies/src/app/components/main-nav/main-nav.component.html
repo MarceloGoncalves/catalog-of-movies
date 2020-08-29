@@ -1,20 +1,29 @@
 <mat-sidenav-container class="sidenav-container">
-  <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport=true>
-    <mat-toolbar>Settings</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Home</a>
-      <a mat-list-item href="#">Profile</a>
-      <a mat-list-item href="#">favorite</a>
-      <a mat-list-item href="#">config</a>
-    </mat-nav-list>
-  </mat-sidenav> -->
 
-  <mat-sidenav-content class="container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport=true>
+    <mat-toolbar class="white">Settings</mat-toolbar>
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header class="side-button">
+          <mat-panel-title>
+            Background Color
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group aria-label="Select an option" [(ngModel)]=color>
+          <mat-radio-button value="#22c1c3">Color 1</mat-radio-button>
+          <mat-radio-button value="#fd2d2d">color 2</mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content class="container" >
     <mat-toolbar color="primary">
       <mat-toolbar-row fxLayoutAlign="space-around center">
 
         <div class="brand">
-          <a (click)="goHome()" >MyMovies</a>
+          <a (click)="goHome()">MyMovies</a>
         </div>
         <span class="spacer"></span>
         <button mat-button *ngIf="!(isHandset$ | async) && !isLogged" (click)="login()">
@@ -36,6 +45,10 @@
             <mat-icon> exit_to_app </mat-icon>
             Sign out
           </button>
+          <button mat-menu-item (click)="drawer.toggle()">
+            <mat-icon>settings</mat-icon>
+            Settings
+          </button>
         </mat-menu>
 
 
@@ -55,6 +68,10 @@
           <button *ngIf="isLogged" mat-menu-item (click)="signOut()">
             <mat-icon> exit_to_app </mat-icon>
             Sign out
+          </button>
+          <button *ngIf="isLogged" mat-menu-item (click)="drawer.toggle()">
+            <mat-icon>settings</mat-icon>
+            Settings
           </button>
         </mat-menu>
       </mat-toolbar-row>

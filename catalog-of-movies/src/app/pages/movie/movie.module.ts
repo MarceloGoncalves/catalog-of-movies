@@ -9,7 +9,8 @@ import { DetailMovieComponent } from './components/detail-movie/detail-movie.com
 import { MovieListPageComponent } from './components/movie-list/movie-list-page.component'
 
 import { TitleDetailComponent } from './components/title-detail.component';
-import { ActorsDetailComponent } from './components/actors-detail.component';
+import { DatasheetDetailComponent } from './components/datasheet-detail.component';
+import { AwardsDetailComponent } from './components/awards-detail.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { ActorsDetailComponent } from './components/actors-detail.component';
 
         DetailMovieComponent,
         TitleDetailComponent,
-        ActorsDetailComponent
+        DatasheetDetailComponent,
+        AwardsDetailComponent
 
     ],
     imports: [

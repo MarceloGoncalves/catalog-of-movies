@@ -10,6 +10,8 @@ export interface MovieModel {
     Runtime:string;
     Genre:string;
     Director:string;
+    Writer:string;
+    Awards:string;
 }
 
 export class MovieModel {
@@ -23,5 +25,7 @@ export class MovieModel {
     Runtime:string;
     Genre:string;
     Director:string;
+    Writer:string;
+    Awards:string;
     constructor() { }
 }

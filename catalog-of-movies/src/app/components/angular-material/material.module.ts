@@ -20,6 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatTooltipModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
+        MatExpansionModule,
+        MatRadioModule
     ],
     exports: [
         MatToolbarModule,
@@ -64,6 +68,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatTooltipModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
+        MatExpansionModule,
+        MatRadioModule
     ]
 })
 export class MaterialModule { }

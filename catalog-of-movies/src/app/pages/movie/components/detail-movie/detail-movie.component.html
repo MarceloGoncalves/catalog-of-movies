@@ -11,6 +11,7 @@
     <app-movie-card [movie]=movie></app-movie-card>
     <div fxLayout="column" fxLayoutAlign="start">
         <app-title-detail [title]=movie.Title [year]=movie.Year [plot]=movie.Plot></app-title-detail>
-        <app-actors-detail [actors]=movie.Actors></app-actors-detail>
+        <app-datasheet-detail [director]=movie.Director [actors]=movie.Actors [writer]=movie.Writer></app-datasheet-detail>
+        <app-awards-detail [awards]=movie.Awards></app-awards-detail>
     </div>
 </div>

@@ -10,12 +10,11 @@ import { UserModel } from '../shared/model/user.model';
                 <mat-card class="mat-elevation-z4">
                     <mat-card-content>
                         <div fxLayout="column">
-
                             <div class="pointer" matRipple (click)="onClickImage()" >
                                 <img src={{movie.Poster}} alt="Poster of movie {{movie.Title}}">
                             </div>
                             <div class="atr-card">
-                                <div class="m5" fxLayout="row" fxLayoutAlign="start" *ngIf="!!movie.Genre">
+                                <div class="m5" fxLayout="row wrap" fxLayoutAlign="start" *ngIf="!!movie.Genre">
                                     <h3 matTooltip="IMDb Rating"><strong>Genre: </strong> {{movie.Genre}}</h3>
                                 </div>
                                 <div fxLayout="row" fxLayoutAlign="space-around start" >
@@ -37,11 +36,12 @@ import { UserModel } from '../shared/model/user.model';
                     </mat-card-content>
                 </mat-card>       
     <style>
-        mat-card{ margin: 5px;}
+        mat-card{ margin: 5px;} 
         .favorite{ color:brown }
         .m5{ margin:5px;}
         .pointer:hover{ cursor: pointer; color:brown;}
         .atr-card{
+            max-width: 300px;
             background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 62%, rgba(238,238,238,1) 98%);
         }
     </style>`

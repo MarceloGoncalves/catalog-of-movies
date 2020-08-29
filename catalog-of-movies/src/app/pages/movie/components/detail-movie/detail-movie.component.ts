@@ -28,6 +28,7 @@ export class DetailMovieComponent implements OnInit, OnDestroy {
         movie => {
           this.movie = movie;
           this.isLoading = false;
+          console.log(movie.Poster);
         }
       )
   }
