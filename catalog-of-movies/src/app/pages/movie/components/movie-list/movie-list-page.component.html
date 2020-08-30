@@ -1,6 +1,8 @@
 <div class="" fxLayout="column" fxLayoutAlign="none">
 
-    <mat-spinner class="mr" *ngIf="isLoading"></mat-spinner>
+    <div fxLayout="row wrap" *ngIf="isLoading" fxLayoutAlign="center center">
+        <mat-spinner color="warn"></mat-spinner>
+    </div>
 
     <div class="mr" *ngIf="!isLoading">
         <div fxLayout="row" fxLayoutAlign="start">
@@ -12,11 +14,7 @@
 
         <app-poster-list [movies]=movies></app-poster-list>
     </div>
-    <mat-paginator *ngIf="isPagenable" 
-        [length]="pageLength" 
-        [pageSize]="pageSize" 
-        [pageSizeOptions]="pageSizeOptions"
-        (page)="getData($event)">
-    </mat-paginator>
-
 </div>
+<mat-paginator *ngIf="isPagenable" [length]="pageLength" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" (page)="getData($event)">
+</mat-paginator>

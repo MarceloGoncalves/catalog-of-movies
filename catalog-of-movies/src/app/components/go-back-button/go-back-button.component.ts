@@ -3,11 +3,8 @@ import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-go-back-button',
-  template: `<button class='withe' (click)="goBack()" mat-icon-button>
-  <mat-icon class="white">
-      keyboard_backspace</mat-icon>
-</button>`,
-  styles: ['.white { color: white; }']
+  templateUrl: './go-back-button.component.html',
+  styleUrls: ['./go-back-button.component.scss']
 })
 export class GoBackButtonComponent implements OnInit {
 

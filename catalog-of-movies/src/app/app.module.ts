@@ -13,12 +13,7 @@ import { UserService } from './core/services/user.service';
 
 import { AppComponent } from './app.component';
 
-import { ComponentsModule } from './components/components.module';
-import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './pages/home/home.module';
-import { FavoriteModule } from './pages/favorite/favorite.module';
-import { LoginModule } from './pages/login/login.module';
-import { MovieModule } from './pages/movie/movie.module';
+import { PagesModule } from './pages/pages.module';
 
 
 
@@ -27,20 +22,15 @@ import { MovieModule } from './pages/movie/movie.module';
     AppComponent,
 
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
- 
-    HttpClientModule,
 
-    ComponentsModule,
-    SharedModule,
-    HomeModule,
-    FavoriteModule,
-    LoginModule,
-    MovieModule
+    HttpClientModule,
+   
+    PagesModule
 
 
   ],

@@ -1,17 +1,15 @@
-import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { GoBackButtonComponent } from './go-back-button.component';
-import { MovieCardComponent } from './movie-card.component';
-import { PosterListComponent } from './poster-list.component';
-import { MaterialModule } from './angular-material/material.module';
+import { SharedModule } from '../shared/shared.module';
+
+import { GoBackButtonComponent } from './go-back-button/go-back-button.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import { PosterListComponent } from './poster-list/poster-list.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
-
         GoBackButtonComponent,
         MovieCardComponent,
         PosterListComponent,
@@ -20,20 +18,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
     ],
     imports: [
-        CommonModule,
-        MaterialModule,
-        FormsModule, 
-        ReactiveFormsModule
+        SharedModule,
+        
     ],
     exports: [
         GoBackButtonComponent,
         MovieCardComponent,
         PosterListComponent,
         MainNavComponent,
-        MaterialModule,
+        SharedModule,
         SearchBarComponent,
-        FormsModule, 
-        ReactiveFormsModule
+       
     ]
 })
 export class ComponentsModule { }

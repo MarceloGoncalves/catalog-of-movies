@@ -1,0 +1,40 @@
+mat-card{ 
+    margin: 5px;
+    
+    
+} 
+.image {
+    min-width: 200px;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.favorite {
+    position: absolute;
+    padding: 10px;
+    color: #22c1c3;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.3) ;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.is-favorite { 
+    color:brown ;
+}
+
+.m5 { 
+    margin:5px;
+}
+
+.pointer:hover { 
+    cursor: pointer; 
+}
+
+.datasheet-card{
+    max-width: 200px;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(238,238,238,0.8911939775910365) 50%, rgba(255,255,255,1) 100%);
+}
