@@ -1,0 +1,52 @@
+
+.m5{
+  margin:5px ;
+}
+.mr{
+  margin-left: 10px;
+}
+
+.rating{
+  padding-top: 9.5px;
+}
+
+.pointer:hover{
+  cursor: pointer;
+  color:brown;
+}
+
+.white{
+  color: white
+}
+
+.bg-image {
+  
+  /* Add the blur effect */
+  filter: blur(70px);
+  -webkit-filter: blur(70px);
+  
+  /* Full height */
+  height: 100%
+; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.detail-layout{
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  padding: 20px;
+
+}
+.container {
+  height: 100%;
+  margin: 0;
+}
+
+.title-detail{
+  color: #22c1c3;
+}
+

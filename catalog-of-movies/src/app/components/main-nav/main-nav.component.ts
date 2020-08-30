@@ -20,6 +20,8 @@ export class MainNavComponent implements OnInit, OnDestroy {
   isSearach: boolean = false;
   isTune: boolean = false;
   userName:string = '';
+  panelOpenState:boolean = false;
+  color:string = '#fdbb2d';
 
   isLogged: boolean = false
   

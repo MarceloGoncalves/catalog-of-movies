@@ -8,12 +8,16 @@
 
 .sidenav .mat-toolbar {
   background: inherit;
-  background-color:slateblue;
+  background-color:#6a5acd;
 }
 
 
-.brand{
+.brand:hover{
   cursor: pointer;
+
+  a{
+    color: rgb(255, 255, 255, 0.8);
+  }
 }
 
 
@@ -30,5 +34,16 @@ a {
 
 .container{
   display: fixed;
-  background: linear-gradient(180deg, rgba(103,58,183,1) 11%, rgba(160,29,253,1) 59%, rgba(252,244,69,1) 100%);
+  background: linear-gradient(180deg, rgba(103,58,183,1) 15%, rgba(72,38,133,1) 46%, rgba(0,0,0,1) 89%);
 }
+
+.white{
+  color: white;
+}
+
+.side-button{
+  width: 100%;
+  font-weight: bold;
+
+}
+

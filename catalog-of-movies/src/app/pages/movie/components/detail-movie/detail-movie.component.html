@@ -1,0 +1,25 @@
+<div class="container" fxLayout="column" >
+    <div fxLayout="row wrap" *ngIf="isLoading" fxLayoutAlign="center center">
+        <mat-spinner color="warn"></mat-spinner>
+    </div>
+
+    <div class="bg-image" *ngIf="!isLoading" [ngStyle]="{'background-image': 'url(' + movie.Poster + ')'}">
+    </div>
+
+    <div class="detail-layout" *ngIf="!isLoading" fxLayout="column" fxLayoutAlign="start center"  >
+        <div class="title-detail" fxLayout="row" fxLayoutAlign="center">
+            <app-go-back-button></app-go-back-button>
+            <p class="mat-display-2 white" *ngIf="movie">{{movie.Title}}</p>
+        </div>
+
+        <div fxLayout="row wrap" *ngIf="!isLoading" fxLayoutAlign="center start" >
+            <app-movie-card [movie]=movie></app-movie-card>
+            <div fxLayout="column" fxLayoutAlign="center start">
+                <app-title-detail [title]=movie.Title [year]=movie.Year [plot]=movie.Plot></app-title-detail>
+                <app-datasheet-detail [director]=movie.Director [actors]=movie.Actors [writer]=movie.Writer>
+                </app-datasheet-detail>
+                <app-awards-detail [awards]=movie.Awards></app-awards-detail>
+            </div>
+        </div>
+    </div>
+</div>

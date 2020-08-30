@@ -20,7 +20,7 @@ export class MovieListPageComponent implements OnInit {
   isPagenable = false
   pageLength = 1;
   pageSize = 10;
-  pageSizeOptions: number[] = [6, 10];
+  pageSizeOptions: number[] = [5, 10];
 
  
   pageEvent: PageEvent
@@ -35,6 +35,7 @@ export class MovieListPageComponent implements OnInit {
   }
 
   getData(event?: PageEvent) {
+    this.isLoading = true;
     this.route.params.subscribe(params => {
       this.title = params['title'];
       if (this.title) {
